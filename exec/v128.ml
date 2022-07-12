@@ -243,10 +243,10 @@ module I8x16 = MakeIntShape (I8)
   (struct
     let shape = I8x16 ()
     let to_lanes s =
-      List.init 16 (fun i -> Int32.of_int (Bytes.get_int8 (Bytes.of_string s) i))
+      assert false
     let of_lanes fs =
       let b = Bytes.create bytewidth in
-      List.iteri (fun i f -> Bytes.set_int8 b i (Int32.to_int f)) fs;
+      assert false;
       Bytes.to_string b
   end)
 
@@ -254,55 +254,45 @@ module I16x8 = MakeIntShape (I16)
   (struct
     let shape = I16x8 ()
     let to_lanes s =
-      List.init 8 (fun i -> Int32.of_int (Bytes.get_int16_le (Bytes.of_string s) (i*2)))
+      assert false
     let of_lanes fs =
-      let b = Bytes.create bytewidth in
-      List.iteri (fun i f -> Bytes.set_int16_le b (i*2) (Int32.to_int f)) fs;
-      Bytes.to_string b
+      assert false
   end)
 
 module I32x4 = MakeIntShape (I32)
   (struct
     let shape = I32x4 ()
     let to_lanes s =
-      List.init 4 (fun i -> I32.of_bits (Bytes.get_int32_le (Bytes.of_string s) (i*4)))
+      assert false
     let of_lanes fs =
-      let b = Bytes.create bytewidth in
-      List.iteri (fun i f -> Bytes.set_int32_le b (i*4) (I32.to_bits f)) fs;
-      Bytes.to_string b
+      assert false
   end)
 
 module I64x2 = MakeIntShape (I64)
   (struct
     let shape = I64x2 ()
     let to_lanes s =
-      List.init 2 (fun i -> I64.of_bits (Bytes.get_int64_le (Bytes.of_string s) (i*8)))
+      assert false
     let of_lanes fs =
-      let b = Bytes.create bytewidth in
-      List.iteri (fun i f -> Bytes.set_int64_le b (i*8) (I64.to_bits f)) fs;
-      Bytes.to_string b
+      assert false
   end)
 
 module F32x4 = MakeFloatShape (F32)
   (struct
     let shape = F32x4 ()
     let to_lanes s =
-      List.init 4 (fun i -> F32.of_bits (Bytes.get_int32_le (Bytes.of_string s) (i*4)))
+      assert false
     let of_lanes fs =
-      let b = Bytes.create bytewidth in
-      List.iteri (fun i f -> Bytes.set_int32_le b (i*4) (F32.to_bits f)) fs;
-      Bytes.to_string b
+      assert false
   end)
 
 module F64x2 = MakeFloatShape (F64)
   (struct
     let shape = F64x2 ()
     let to_lanes s =
-      List.init 2 (fun i -> F64.of_bits (Bytes.get_int64_le (Bytes.of_string s) (i*8)))
+      assert false
     let of_lanes fs =
-      let b = Bytes.create bytewidth in
-      List.iteri (fun i f -> Bytes.set_int64_le b (i*8) (F64.to_bits f)) fs;
-      Bytes.to_string b
+      assert false
   end)
 
 
@@ -332,7 +322,7 @@ struct
     let ns = I8x16.to_lanes v1 in
     let is = I8x16.to_lanes v2 in
     let select i =
-      Option.value (List.nth_opt ns (I32.to_int_u i)) ~default: I32.zero
+      assert false
     in I8x16.of_lanes (List.map select is)
 
   let shuffle v1 v2 is =
@@ -476,25 +466,7 @@ let to_hex_string s =
   String.concat " " (List.map I32.to_hex_string (I32x4.to_lanes s))
 
 let of_strings shape ss =
-  if List.length ss <> num_lanes shape then
-    raise (Invalid_argument "wrong length");
-  let open Bytes in
-  let b = create bytewidth in
-  (match shape with
-  | I8x16 () ->
-    List.iteri (fun i s -> set_uint8 b i (I8.to_int_u (I8.of_string s))) ss
-  | I16x8 () ->
-    List.iteri (fun i s -> set_int16_le b (i * 2) (I16.to_int_u (I16.of_string s))) ss
-  | I32x4 () ->
-    List.iteri (fun i s -> set_int32_le b (i * 4) (I32.of_string s)) ss
-  | I64x2 () ->
-    List.iteri (fun i s -> set_int64_le b (i * 8) (I64.of_string s)) ss
-  | F32x4 () ->
-    List.iteri (fun i s -> set_int32_le b (i * 4) (F32.to_bits (F32.of_string s))) ss
-  | F64x2 () ->
-    List.iteri (fun i s -> set_int64_le b (i * 8) (F64.to_bits (F64.of_string s))) ss
-  );
-  to_string b
+  assert false
 
 
 let string_of_shape = function

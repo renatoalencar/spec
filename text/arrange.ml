@@ -159,7 +159,7 @@ module FloatOp =
 struct
   open Ast.FloatOp
 
-  let testop xx = function (_ : testop) -> .
+  let testop xx = function (_ : testop) -> assert false
 
   let relop xx = function
     | Eq -> "eq"
@@ -213,7 +213,7 @@ struct
     | "32x4" -> "64x2"
     | _ -> assert false
 
-  let voidop xxxx = function (_ : void) -> .
+  let voidop xxxx = function (_ : void) -> assert false
 
   let itestop xxxx (op : itestop) = match op with
     | AllTrue -> "all_true"
@@ -713,7 +713,7 @@ let nan = function
 let nanop (n : nanop) =
   match n.it with
   | F32 n' | F64 n' -> nan n'
-  | _ -> .
+  | _ -> assert false
 
 let num_pat mode = function
   | NumPat n -> literal mode (Values.Num n.it @@ n.at)

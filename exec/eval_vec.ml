@@ -13,7 +13,7 @@ struct
       | I16x8 AllTrue -> V128.I16x8.all_true
       | I32x4 AllTrue -> V128.I32x4.all_true
       | I64x2 AllTrue -> V128.I64x2.all_true
-      | _ -> .
+      | _ -> assert false
     in fun v -> f (of_vec 1 v)
 
   let unop (op : unop) =
@@ -216,7 +216,7 @@ struct
       | I64x2 Shl -> V128.I64x2.shl
       | I64x2 ShrS -> V128.I64x2.shr_s
       | I64x2 ShrU -> V128.I64x2.shr_u
-      | _ -> .
+      | _ -> assert false
     in fun v n -> to_vec (f (of_vec 1 v) (I32Num.of_num 2 n))
 
   let bitmaskop (op : bitmaskop) v =
@@ -225,7 +225,7 @@ struct
       | I16x8 Bitmask -> V128.I16x8.bitmask
       | I32x4 Bitmask -> V128.I32x4.bitmask
       | I64x2 Bitmask -> V128.I64x2.bitmask
-      | _ -> .
+      | _ -> assert false
     in I32 (f (of_vec 1 v))
 
   let vtestop (op : vtestop) =

@@ -11,3 +11,7 @@ _build
 wasm
 wasm.debug
 
+_opam
+
+node_modules
+/lib

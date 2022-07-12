@@ -1,0 +1,26 @@
+{
+  "name": "wasm-spec",
+  "version": "1.0.0",
+  "description": "This repository implements a interpreter for WebAssembly. It is written for clarity and simplicity, _not_ speed. It is intended as a playground for trying out ideas and a device for nailing down the exact semantics, and as a proxy for the (yet to be produced) formal specification of WebAssembly. For that purpose, the code is written in a fairly declarative, \"speccy\" way.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zett98/spec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zett98/spec/issues"
+  },
+  "homepage": "https://github.com/Zett98/spec#readme",
+  "dependencies": {
+    "rescript": "^9.1.4"
+  }
+}

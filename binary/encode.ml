@@ -298,7 +298,7 @@ struct
 
     | Test (I32 I32Op.Eqz) -> op 0x45
     | Test (I64 I64Op.Eqz) -> op 0x50
-    | Test (F32 _ | F64 _) -> .
+    | Test (F32 _ | F64 _) -> assert false
 
     | Compare (I32 I32Op.Eq) -> op 0x46
     | Compare (I32 I32Op.Ne) -> op 0x47
@@ -463,7 +463,7 @@ struct
     | VecTest (V128 (I16x8 V128Op.AllTrue)) -> vecop 0x83l
     | VecTest (V128 (I32x4 V128Op.AllTrue)) -> vecop 0xa3l
     | VecTest (V128 (I64x2 V128Op.AllTrue)) -> vecop 0xc3l
-    | VecTest (V128 _) -> .
+    | VecTest (V128 _) -> assert false
 
     | VecUnary (V128 (I8x16 V128Op.Abs)) -> vecop 0x60l
     | VecUnary (V128 (I8x16 V128Op.Neg)) -> vecop 0x61l
@@ -660,13 +660,13 @@ struct
     | VecShift (V128 (I64x2 V128Op.Shl)) -> vecop 0xcbl
     | VecShift (V128 (I64x2 V128Op.ShrS)) -> vecop 0xccl
     | VecShift (V128 (I64x2 V128Op.ShrU)) -> vecop 0xcdl
-    | VecShift (V128 _) -> .
+    | VecShift (V128 _) -> assert false
 
     | VecBitmask (V128 (I8x16 V128Op.Bitmask)) -> vecop 0x64l
     | VecBitmask (V128 (I16x8 V128Op.Bitmask)) -> vecop 0x84l
     | VecBitmask (V128 (I32x4 V128Op.Bitmask)) -> vecop 0xa4l
     | VecBitmask (V128 (I64x2 V128Op.Bitmask)) -> vecop 0xc4l
-    | VecBitmask (V128 _) -> .
+    | VecBitmask (V128 _) -> assert false
 
     | VecTestBits (V128 V128Op.AnyTrue) -> vecop 0x53l
     | VecUnaryBits (V128 V128Op.Not) -> vecop 0x4dl

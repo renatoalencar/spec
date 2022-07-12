@@ -1,4 +1,4 @@
-type void = |
+type void = VOIDTYPE
 
 module Fun =
 struct
@@ -169,29 +169,6 @@ struct
   let set a i x = Array.set a (index_of_int32 i) x
   let blit a1 i1 a2 i2 n =
     Array.blit a1 (index_of_int32 i1) a2 (index_of_int32 i2) (index_of_int32 n)
-end
-
-module Bigarray =
-struct
-  open Bigarray
-
-  module Array1_64 =
-  struct
-    let create kind layout n =
-      if n < 0L || n > Int64.of_int max_int then
-        raise (Invalid_argument "Bigarray.Array1_64.create");
-      Array1.create kind layout (Int64.to_int n)
-
-    let dim a = Int64.of_int (Array1.dim a)
-
-    let index_of_int64 i =
-      if i < 0L || i > Int64.of_int max_int then -1 else
-      Int64.to_int i
-
-    let get a i = Array1.get a (index_of_int64 i)
-    let set a i x = Array1.set a (index_of_int64 i) x
-    let sub a i n = Array1.sub a (index_of_int64 i) (index_of_int64 n)
-  end
 end
 
 module Option =

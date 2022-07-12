@@ -1,6 +1,6 @@
 (* Things that should be in the OCaml library... *)
 
-type void = |
+type void = VOIDTYPE
 
 module Fun :
 sig
@@ -45,20 +45,6 @@ sig
   val get : 'a array -> int32 -> 'a
   val set : 'a array -> int32 -> 'a -> unit
   val blit : 'a array -> int32 -> 'a array -> int32 -> int32 -> unit
-end
-
-module Bigarray :
-sig
-  open Bigarray
-
-  module Array1_64 :
-  sig
-    val create : ('a, 'b) kind -> 'c layout -> int64 -> ('a, 'b, 'c) Array1.t
-    val dim : ('a, 'b, 'c) Array1.t -> int64
-    val get : ('a, 'b, 'c) Array1.t -> int64 -> 'a
-    val set : ('a, 'b, 'c) Array1.t -> int64 -> 'a -> unit
-    val sub : ('a, 'b, 'c) Array1.t -> int64 -> int64 -> ('a, 'b, 'c) Array1.t
-  end
 end
 
 module Option :

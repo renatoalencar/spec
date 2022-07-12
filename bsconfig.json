@@ -1,0 +1,21 @@
+{
+    "name": "deku-originate",
+    "sources": [
+      { "dir": "text" },
+      { "dir": "syntax" },
+      { "dir": "util" },
+      { "dir": "script" },
+      { "dir": "exec" },
+      { "dir": "binary" },
+      { "dir": "runtime" }
+    ],
+    "package-specs": [
+      {
+        "module": "es6",
+        "in-source": true
+      }
+    ],
+    "suffix": ".bs.js",
+    "bs-dependencies": [
+    ]
+  }

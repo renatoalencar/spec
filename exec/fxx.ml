@@ -138,17 +138,17 @@ struct
   let mul x y = binary x ( *.) y
   let div x y = binary x (/.) y
 
-  let sqrt  x = unary Stdlib.sqrt x
+  let sqrt  x = unary Js.Math.sqrt x
 
-  let ceil  x = unary Stdlib.ceil x
-  let floor x = unary Stdlib.floor x
+  let ceil  x = unary Js.Math.ceil_float x
+  let floor x = unary Js.Math.floor_float x
 
   let trunc x =
     let xf = to_float x in
     (* preserve the sign of zero *)
     if xf = 0.0 then x else
     (* trunc is either ceil or floor depending on which one is toward zero *)
-    let f = if xf < 0.0 then Stdlib.ceil xf else Stdlib.floor xf in
+    let f = if xf < 0.0 then Js.Math.ceil_float xf else Js.Math.floor_float xf in
     let result = of_float f in
     if is_nan result then determine_unary_nan result else result
 
@@ -157,13 +157,13 @@ struct
     (* preserve the sign of zero *)
     if xf = 0.0 then x else
     (* nearest is either ceil or floor depending on which is nearest or even *)
-    let u = Stdlib.ceil xf in
-    let d = Stdlib.floor xf in
+    let u = Js.Math.ceil_float xf in
+    let d = Js.Math.floor_float xf in
     let um = abs_float (xf -. u) in
     let dm = abs_float (xf -. d) in
     let u_or_d =
       um < dm ||
-      um = dm && let h = u /. 2. in Stdlib.floor h = h
+      um = dm && let h = u /. 2. in Js.Math.floor_float h = h
     in
     let f = if u_or_d then u else d in
     let result = of_float f in
