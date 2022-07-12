@@ -1,0 +1,2 @@
+text/arrange.cmj : syntax/ast.cmj syntax/ast.cmi binary/decode.cmj binary/decode.cmi binary/encode.cmj binary/encode.cmi exec/i16.cmj exec/i16.cmi exec/i32.cmj exec/i32.cmi exec/i8.cmj exec/i8.cmi util/lib.cmj util/lib.cmi text/parse.cmj text/parse.cmi script/script.cmj script/script.cmi util/sexpr.cmj util/sexpr.cmi util/source.cmj util/source.cmi syntax/types.cmj syntax/types.cmi exec/v128.cmj exec/v128.cmi syntax/values.cmj syntax/values.cmi
+text/arrange.cmi :  syntax/ast.cmi  script/script.cmi  util/sexpr.cmi

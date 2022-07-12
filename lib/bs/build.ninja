@@ -1,0 +1,188 @@
+rescript = 1
+rule ast
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe  -bs-v 9.1.4  -absname -bs-ast -o $out $i
+o runtime/func.ast : ast ../../runtime/func.ml
+rule deps
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsb_helper.exe -hash fb00a8bc3dcc51a56f2564b38ded6c05 $in
+  restat = 1
+o runtime/func.d : deps runtime/func.ast runtime/func.iast
+o runtime/func.iast : ast ../../runtime/func.mli
+rule mi
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime   $i
+  dyndep = 1
+  restat = 1
+o runtime/func.cmi : mi runtime/func.iast
+rule mj
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -bs-read-cmi -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name deku-originate -bs-package-output es6:$in_d:.bs.js $i
+  dyndep = 1
+  restat = 1
+o runtime/func.cmj ../../runtime/func.bs.js : mj runtime/func.ast runtime/func.cmi
+o runtime/table.ast : ast ../../runtime/table.ml
+o runtime/table.d : deps runtime/table.ast runtime/table.iast
+o runtime/table.iast : ast ../../runtime/table.mli
+o runtime/table.cmi : mi runtime/table.iast
+o runtime/table.cmj ../../runtime/table.bs.js : mj runtime/table.ast runtime/table.cmi
+o runtime/global.ast : ast ../../runtime/global.ml
+o runtime/global.d : deps runtime/global.ast runtime/global.iast
+o runtime/global.iast : ast ../../runtime/global.mli
+o runtime/global.cmi : mi runtime/global.iast
+o runtime/global.cmj ../../runtime/global.bs.js : mj runtime/global.ast runtime/global.cmi
+o runtime/memory.ast : ast ../../runtime/memory.ml
+o runtime/memory.d : deps runtime/memory.ast runtime/memory.iast
+o runtime/memory.iast : ast ../../runtime/memory.mli
+o runtime/memory.cmi : mi runtime/memory.iast
+o runtime/memory.cmj ../../runtime/memory.bs.js : mj runtime/memory.ast runtime/memory.cmi
+o runtime/instance.ast : ast ../../runtime/instance.ml
+o runtime/instance.d : deps runtime/instance.ast
+rule mij
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name deku-originate -bs-package-output es6:$in_d:.bs.js $i
+  dyndep = 1
+  restat = 1
+o runtime/instance.cmj runtime/instance.cmi ../../runtime/instance.bs.js : mij runtime/instance.ast
+o binary/utf8.ast : ast ../../binary/utf8.ml
+o binary/utf8.d : deps binary/utf8.ast binary/utf8.iast
+o binary/utf8.iast : ast ../../binary/utf8.mli
+o binary/utf8.cmi : mi binary/utf8.iast
+o binary/utf8.cmj ../../binary/utf8.bs.js : mj binary/utf8.ast binary/utf8.cmi
+o binary/decode.ast : ast ../../binary/decode.ml
+o binary/decode.d : deps binary/decode.ast binary/decode.iast
+o binary/decode.iast : ast ../../binary/decode.mli
+o binary/decode.cmi : mi binary/decode.iast
+o binary/decode.cmj ../../binary/decode.bs.js : mj binary/decode.ast binary/decode.cmi
+o binary/encode.ast : ast ../../binary/encode.ml
+o binary/encode.d : deps binary/encode.ast binary/encode.iast
+o binary/encode.iast : ast ../../binary/encode.mli
+o binary/encode.cmi : mi binary/encode.iast
+o binary/encode.cmj ../../binary/encode.bs.js : mj binary/encode.ast binary/encode.cmi
+o exec/i8.ast : ast ../../exec/i8.ml
+o exec/i8.d : deps exec/i8.ast
+o exec/i8.cmj exec/i8.cmi ../../exec/i8.bs.js : mij exec/i8.ast
+o exec/f32.ast : ast ../../exec/f32.ml
+o exec/f32.d : deps exec/f32.ast
+o exec/f32.cmj exec/f32.cmi ../../exec/f32.bs.js : mij exec/f32.ast
+o exec/f64.ast : ast ../../exec/f64.ml
+o exec/f64.d : deps exec/f64.ast
+o exec/f64.cmj exec/f64.cmi ../../exec/f64.bs.js : mij exec/f64.ast
+o exec/fxx.ast : ast ../../exec/fxx.ml
+o exec/fxx.d : deps exec/fxx.ast
+o exec/fxx.cmj exec/fxx.cmi ../../exec/fxx.bs.js : mij exec/fxx.ast
+o exec/i16.ast : ast ../../exec/i16.ml
+o exec/i16.d : deps exec/i16.ast
+o exec/i16.cmj exec/i16.cmi ../../exec/i16.bs.js : mij exec/i16.ast
+o exec/i32.ast : ast ../../exec/i32.ml
+o exec/i32.d : deps exec/i32.ast
+o exec/i32.cmj exec/i32.cmi ../../exec/i32.bs.js : mij exec/i32.ast
+o exec/i64.ast : ast ../../exec/i64.ml
+o exec/i64.d : deps exec/i64.ast
+o exec/i64.cmj exec/i64.cmi ../../exec/i64.bs.js : mij exec/i64.ast
+o exec/ixx.ast : ast ../../exec/ixx.ml
+o exec/ixx.d : deps exec/ixx.ast
+o exec/ixx.cmj exec/ixx.cmi ../../exec/ixx.bs.js : mij exec/ixx.ast
+o exec/eval.ast : ast ../../exec/eval.ml
+o exec/eval.d : deps exec/eval.ast exec/eval.iast
+o exec/eval.iast : ast ../../exec/eval.mli
+o exec/eval.cmi : mi exec/eval.iast
+o exec/eval.cmj ../../exec/eval.bs.js : mj exec/eval.ast exec/eval.cmi
+o exec/v128.ast : ast ../../exec/v128.ml
+o exec/v128.d : deps exec/v128.ast exec/v128.iast
+o exec/v128.iast : ast ../../exec/v128.mli
+o exec/v128.cmi : mi exec/v128.iast
+o exec/v128.cmj ../../exec/v128.bs.js : mj exec/v128.ast exec/v128.cmi
+o exec/eval_num.ast : ast ../../exec/eval_num.ml
+o exec/eval_num.d : deps exec/eval_num.ast exec/eval_num.iast
+o exec/eval_num.iast : ast ../../exec/eval_num.mli
+o exec/eval_num.cmi : mi exec/eval_num.iast
+o exec/eval_num.cmj ../../exec/eval_num.bs.js : mj exec/eval_num.ast exec/eval_num.cmi
+o exec/eval_vec.ast : ast ../../exec/eval_vec.ml
+o exec/eval_vec.d : deps exec/eval_vec.ast exec/eval_vec.iast
+o exec/eval_vec.iast : ast ../../exec/eval_vec.mli
+o exec/eval_vec.cmi : mi exec/eval_vec.iast
+o exec/eval_vec.cmj ../../exec/eval_vec.bs.js : mj exec/eval_vec.ast exec/eval_vec.cmi
+o exec/f32_convert.ast : ast ../../exec/f32_convert.ml
+o exec/f32_convert.d : deps exec/f32_convert.ast exec/f32_convert.iast
+o exec/f32_convert.iast : ast ../../exec/f32_convert.mli
+o exec/f32_convert.cmi : mi exec/f32_convert.iast
+o exec/f32_convert.cmj ../../exec/f32_convert.bs.js : mj exec/f32_convert.ast exec/f32_convert.cmi
+o exec/f64_convert.ast : ast ../../exec/f64_convert.ml
+o exec/f64_convert.d : deps exec/f64_convert.ast exec/f64_convert.iast
+o exec/f64_convert.iast : ast ../../exec/f64_convert.mli
+o exec/f64_convert.cmi : mi exec/f64_convert.iast
+o exec/f64_convert.cmj ../../exec/f64_convert.bs.js : mj exec/f64_convert.ast exec/f64_convert.cmi
+o exec/i32_convert.ast : ast ../../exec/i32_convert.ml
+o exec/i32_convert.d : deps exec/i32_convert.ast exec/i32_convert.iast
+o exec/i32_convert.iast : ast ../../exec/i32_convert.mli
+o exec/i32_convert.cmi : mi exec/i32_convert.iast
+o exec/i32_convert.cmj ../../exec/i32_convert.bs.js : mj exec/i32_convert.ast exec/i32_convert.cmi
+o exec/i64_convert.ast : ast ../../exec/i64_convert.ml
+o exec/i64_convert.d : deps exec/i64_convert.ast exec/i64_convert.iast
+o exec/i64_convert.iast : ast ../../exec/i64_convert.mli
+o exec/i64_convert.cmi : mi exec/i64_convert.iast
+o exec/i64_convert.cmj ../../exec/i64_convert.bs.js : mj exec/i64_convert.ast exec/i64_convert.cmi
+o script/import.ast : ast ../../script/import.ml
+o script/import.d : deps script/import.ast script/import.iast
+o script/import.iast : ast ../../script/import.mli
+o script/import.cmi : mi script/import.iast
+o script/import.cmj ../../script/import.bs.js : mj script/import.ast script/import.cmi
+o script/script.ast : ast ../../script/script.ml
+o script/script.d : deps script/script.ast
+o script/script.cmj script/script.cmi ../../script/script.bs.js : mij script/script.ast
+o util/lib.ast : ast ../../util/lib.ml
+o util/lib.d : deps util/lib.ast util/lib.iast
+o util/lib.iast : ast ../../util/lib.mli
+o util/lib.cmi : mi util/lib.iast
+o util/lib.cmj ../../util/lib.bs.js : mj util/lib.ast util/lib.cmi
+o util/error.ast : ast ../../util/error.ml
+o util/error.d : deps util/error.ast util/error.iast
+o util/error.iast : ast ../../util/error.mli
+o util/error.cmi : mi util/error.iast
+o util/error.cmj ../../util/error.bs.js : mj util/error.ast util/error.cmi
+o util/sexpr.ast : ast ../../util/sexpr.ml
+o util/sexpr.d : deps util/sexpr.ast util/sexpr.iast
+o util/sexpr.iast : ast ../../util/sexpr.mli
+o util/sexpr.cmi : mi util/sexpr.iast
+o util/sexpr.cmj ../../util/sexpr.bs.js : mj util/sexpr.ast util/sexpr.cmi
+o util/source.ast : ast ../../util/source.ml
+o util/source.d : deps util/source.ast util/source.iast
+o util/source.iast : ast ../../util/source.mli
+o util/source.cmi : mi util/source.iast
+o util/source.cmj ../../util/source.bs.js : mj util/source.ast util/source.cmi
+o syntax/ast.ast : ast ../../syntax/ast.ml
+o syntax/ast.d : deps syntax/ast.ast
+o syntax/ast.cmj syntax/ast.cmi ../../syntax/ast.bs.js : mij syntax/ast.ast
+o syntax/free.ast : ast ../../syntax/free.ml
+o syntax/free.d : deps syntax/free.ast syntax/free.iast
+o syntax/free.iast : ast ../../syntax/free.mli
+o syntax/free.cmi : mi syntax/free.iast
+o syntax/free.cmj ../../syntax/free.bs.js : mj syntax/free.ast syntax/free.cmi
+o syntax/types.ast : ast ../../syntax/types.ml
+o syntax/types.d : deps syntax/types.ast
+o syntax/types.cmj syntax/types.cmi ../../syntax/types.bs.js : mij syntax/types.ast
+o syntax/values.ast : ast ../../syntax/values.ml
+o syntax/values.d : deps syntax/values.ast
+o syntax/values.cmj syntax/values.cmi ../../syntax/values.bs.js : mij syntax/values.ast
+o syntax/operators.ast : ast ../../syntax/operators.ml
+o syntax/operators.d : deps syntax/operators.ast
+o syntax/operators.cmj syntax/operators.cmi ../../syntax/operators.bs.js : mij syntax/operators.ast
+o text/lexer.ast : ast ../../text/lexer.ml
+o text/lexer.d : deps text/lexer.ast text/lexer.iast
+o text/lexer.iast : ast ../../text/lexer.mli
+o text/lexer.cmi : mi text/lexer.iast
+o text/lexer.cmj ../../text/lexer.bs.js : mj text/lexer.ast text/lexer.cmi
+o text/parse.ast : ast ../../text/parse.ml
+o text/parse.d : deps text/parse.ast text/parse.iast
+o text/parse.iast : ast ../../text/parse.mli
+o text/parse.cmi : mi text/parse.iast
+o text/parse.cmj ../../text/parse.bs.js : mj text/parse.ast text/parse.cmi
+o text/print.ast : ast ../../text/print.ml
+o text/print.d : deps text/print.ast text/print.iast
+o text/print.iast : ast ../../text/print.mli
+o text/print.cmi : mi text/print.iast
+o text/print.cmj ../../text/print.bs.js : mj text/print.ast text/print.cmi
+o text/parser.ast : ast ../../text/parser.ml
+o text/parser.d : deps text/parser.ast
+o text/parser.cmj text/parser.cmi ../../text/parser.bs.js : mij text/parser.ast
+o text/arrange.ast : ast ../../text/arrange.ml
+o text/arrange.d : deps text/arrange.ast text/arrange.iast
+o text/arrange.iast : ast ../../text/arrange.mli
+o text/arrange.cmi : mi text/arrange.iast
+o text/arrange.cmj ../../text/arrange.bs.js : mj text/arrange.ast text/arrange.cmi

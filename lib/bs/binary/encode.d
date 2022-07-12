@@ -1,0 +1,2 @@
+binary/encode.cmj : syntax/ast.cmj syntax/ast.cmi util/error.cmj util/error.cmi exec/f32.cmj exec/f32.cmi exec/f64.cmj exec/f64.cmi syntax/free.cmj syntax/free.cmi exec/i64_convert.cmj exec/i64_convert.cmi util/lib.cmj util/lib.cmi util/source.cmj util/source.cmi syntax/types.cmj syntax/types.cmi binary/utf8.cmj binary/utf8.cmi exec/v128.cmj exec/v128.cmi syntax/values.cmj syntax/values.cmi
+binary/encode.cmi :  syntax/ast.cmi  util/source.cmi

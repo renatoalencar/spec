@@ -1,0 +1,1 @@
+runtime/instance.cmj : syntax/ast.cmj syntax/ast.cmi runtime/func.cmj runtime/func.cmi runtime/global.cmj runtime/global.cmi runtime/memory.cmj runtime/memory.cmi runtime/table.cmj runtime/table.cmi syntax/types.cmj syntax/types.cmi syntax/values.cmj syntax/values.cmi
