@@ -3,6 +3,8 @@ FLG -ppx '/Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe
 S /Users/renato/workspace/wasm-spec/node_modules/rescript/lib/ocaml
 B /Users/renato/workspace/wasm-spec/node_modules/rescript/lib/ocaml
 FLG -w +a-4-9-20-40-41-42-50-61-102
+S valid
+B lib/bs/valid
 S runtime
 B lib/bs/runtime
 S binary

@@ -7,7 +7,8 @@
       { "dir": "script" },
       { "dir": "exec" },
       { "dir": "binary" },
-      { "dir": "runtime" }
+      { "dir": "runtime" },
+      { "dir": "valid" }
     ],
     "package-specs": [
       {

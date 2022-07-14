@@ -1,21 +1,26 @@
 rescript = 1
 rule ast
   command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe  -bs-v 9.1.4  -absname -bs-ast -o $out $i
-o runtime/func.ast : ast ../../runtime/func.ml
+o valid/valid.ast : ast ../../valid/valid.ml
 rule deps
-  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsb_helper.exe -hash fb00a8bc3dcc51a56f2564b38ded6c05 $in
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsb_helper.exe -hash 3b242ce686e051458436539d8e6b0b7f $in
   restat = 1
+o valid/valid.d : deps valid/valid.ast valid/valid.iast
+o valid/valid.iast : ast ../../valid/valid.mli
+rule mi
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime -I valid   $i
+  dyndep = 1
+  restat = 1
+o valid/valid.cmi : mi valid/valid.iast
+rule mj
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -bs-read-cmi -I text -I syntax -I util -I script -I exec -I binary -I runtime -I valid   -bs-package-name wasm-spec -bs-package-output commonjs:$in_d:.bs.js $i
+  dyndep = 1
+  restat = 1
+o valid/valid.cmj ../../valid/valid.bs.js : mj valid/valid.ast valid/valid.cmi
+o runtime/func.ast : ast ../../runtime/func.ml
 o runtime/func.d : deps runtime/func.ast runtime/func.iast
 o runtime/func.iast : ast ../../runtime/func.mli
-rule mi
-  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime   $i
-  dyndep = 1
-  restat = 1
 o runtime/func.cmi : mi runtime/func.iast
-rule mj
-  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -bs-read-cmi -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name wasm-spec -bs-package-output commonjs:$in_d:.bs.js $i
-  dyndep = 1
-  restat = 1
 o runtime/func.cmj ../../runtime/func.bs.js : mj runtime/func.ast runtime/func.cmi
 o runtime/table.ast : ast ../../runtime/table.ml
 o runtime/table.d : deps runtime/table.ast runtime/table.iast
@@ -35,7 +40,7 @@ o runtime/memory.cmj ../../runtime/memory.bs.js : mj runtime/memory.ast runtime/
 o runtime/instance.ast : ast ../../runtime/instance.ml
 o runtime/instance.d : deps runtime/instance.ast
 rule mij
-  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name wasm-spec -bs-package-output commonjs:$in_d:.bs.js $i
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime -I valid   -bs-package-name wasm-spec -bs-package-output commonjs:$in_d:.bs.js $i
   dyndep = 1
   restat = 1
 o runtime/instance.cmj runtime/instance.cmi ../../runtime/instance.bs.js : mij runtime/instance.ast

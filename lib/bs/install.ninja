@@ -3,6 +3,12 @@ rule cp
   command = cp $i $out
 rule touch
  command = touch $out
+o valid.cmi : cp ../bs/valid/valid.cmi
+o valid.cmj : cp ../bs/valid/valid.cmj
+o valid.cmt : cp ../bs/valid/valid.cmt
+o valid.ml : cp ../../valid/valid.ml
+o valid.mli : cp ../../valid/valid.mli
+o valid.cmti : cp ../bs/valid/valid.cmti
 o func.cmi : cp ../bs/runtime/func.cmi
 o func.cmj : cp ../bs/runtime/func.cmj
 o func.cmt : cp ../bs/runtime/func.cmt
@@ -213,4 +219,4 @@ o arrange.cmt : cp ../bs/text/arrange.cmt
 o arrange.ml : cp ../../text/arrange.ml
 o arrange.mli : cp ../../text/arrange.mli
 o arrange.cmti : cp ../bs/text/arrange.cmti
-build install.stamp : touch func.cmi func.cmj table.cmi table.cmj global.cmi global.cmj memory.cmi memory.cmj instance.cmi instance.cmj utf8.cmi utf8.cmj decode.cmi decode.cmj encode.cmi encode.cmj i8.cmi i8.cmj f32.cmi f32.cmj f64.cmi f64.cmj fxx.cmi fxx.cmj i16.cmi i16.cmj i32.cmi i32.cmj i64.cmi i64.cmj ixx.cmi ixx.cmj eval.cmi eval.cmj v128.cmi v128.cmj eval_num.cmi eval_num.cmj eval_vec.cmi eval_vec.cmj f32_convert.cmi f32_convert.cmj f64_convert.cmi f64_convert.cmj i32_convert.cmi i32_convert.cmj i64_convert.cmi i64_convert.cmj import.cmi import.cmj script.cmi script.cmj lib.cmi lib.cmj error.cmi error.cmj sexpr.cmi sexpr.cmj source.cmi source.cmj ast.cmi ast.cmj free.cmi free.cmj types.cmi types.cmj values.cmi values.cmj operators.cmi operators.cmj lexer.cmi lexer.cmj parse.cmi parse.cmj print.cmi print.cmj parser.cmi parser.cmj arrange.cmi arrange.cmj 
+build install.stamp : touch valid.cmi valid.cmj func.cmi func.cmj table.cmi table.cmj global.cmi global.cmj memory.cmi memory.cmj instance.cmi instance.cmj utf8.cmi utf8.cmj decode.cmi decode.cmj encode.cmi encode.cmj i8.cmi i8.cmj f32.cmi f32.cmj f64.cmi f64.cmj fxx.cmi fxx.cmj i16.cmi i16.cmj i32.cmi i32.cmj i64.cmi i64.cmj ixx.cmi ixx.cmj eval.cmi eval.cmj v128.cmi v128.cmj eval_num.cmi eval_num.cmj eval_vec.cmi eval_vec.cmj f32_convert.cmi f32_convert.cmj f64_convert.cmi f64_convert.cmj i32_convert.cmi i32_convert.cmj i64_convert.cmi i64_convert.cmj import.cmi import.cmj script.cmi script.cmj lib.cmi lib.cmj error.cmi error.cmj sexpr.cmi sexpr.cmj source.cmi source.cmj ast.cmi ast.cmj free.cmi free.cmj types.cmi types.cmj values.cmi values.cmj operators.cmi operators.cmj lexer.cmi lexer.cmj parse.cmi parse.cmj print.cmi print.cmj parser.cmi parser.cmj arrange.cmi arrange.cmj 
