@@ -1,4 +1,4 @@
-#Start(1657661938780)
+#Start(1657821043940)
 File "/Users/renato/workspace/wasm-spec/util/source.ml", line 16, characters 5-19:
 Warning 3: deprecated: module Printf
 This module is deprecated
@@ -28,20 +28,20 @@ File "/Users/renato/workspace/wasm-spec/exec/ixx.ml", line 178, characters 12-13
 Warning 27: unused variable r.
 File "/Users/renato/workspace/wasm-spec/exec/ixx.ml", line 188, characters 9-10:
 Warning 27: unused variable q.
-File "/Users/renato/workspace/wasm-spec/exec/i8.ml", line 8, characters 25-39:
-Warning 3: deprecated: module Printf
-This module is deprecated
 File "/Users/renato/workspace/wasm-spec/binary/utf8.ml", line 11, characters 8-10:
 Warning 27: unused variable ns.
 File "/Users/renato/workspace/wasm-spec/binary/utf8.ml", line 35, characters 9-11:
 Warning 27: unused variable bs.
-File "/Users/renato/workspace/wasm-spec/exec/i64.ml", line 7, characters 25-39:
+File "/Users/renato/workspace/wasm-spec/exec/i16.ml", line 8, characters 25-39:
 Warning 3: deprecated: module Printf
 This module is deprecated
 File "/Users/renato/workspace/wasm-spec/exec/i32.ml", line 7, characters 25-39:
 Warning 3: deprecated: module Printf
 This module is deprecated
-File "/Users/renato/workspace/wasm-spec/exec/i16.ml", line 8, characters 25-39:
+File "/Users/renato/workspace/wasm-spec/exec/i8.ml", line 8, characters 25-39:
+Warning 3: deprecated: module Printf
+This module is deprecated
+File "/Users/renato/workspace/wasm-spec/exec/i64.ml", line 7, characters 25-39:
 Warning 3: deprecated: module Printf
 This module is deprecated
 File "/Users/renato/workspace/wasm-spec/exec/fxx.ml", line 267, characters 23-37:
@@ -59,10 +59,10 @@ This module is deprecated
 File "/Users/renato/workspace/wasm-spec/exec/fxx.ml", line 357, characters 17-31:
 Warning 3: deprecated: module Printf
 This module is deprecated
-File "/Users/renato/workspace/wasm-spec/exec/f32.ml", line 13, characters 25-39:
+File "/Users/renato/workspace/wasm-spec/exec/f64.ml", line 8, characters 25-39:
 Warning 3: deprecated: module Printf
 This module is deprecated
-File "/Users/renato/workspace/wasm-spec/exec/f64.ml", line 8, characters 25-39:
+File "/Users/renato/workspace/wasm-spec/exec/f32.ml", line 13, characters 25-39:
 Warning 3: deprecated: module Printf
 This module is deprecated
 File "/Users/renato/workspace/wasm-spec/exec/i32_convert.ml", line 10, characters 16-40:
@@ -192,8 +192,6 @@ Warning 27: unused variable lim.
 File "/Users/renato/workspace/wasm-spec/syntax/ast.ml", line 366, characters 28-42:
 Warning 3: deprecated: module Printf
 This module is deprecated
-File "/Users/renato/workspace/wasm-spec/script/import.ml", line 13, characters 32-37:
-Warning 27: unused variable idesc.
 File "/Users/renato/workspace/wasm-spec/exec/eval_num.ml", line 92, characters 14-16:
 Warning 27: unused variable op.
 File "/Users/renato/workspace/wasm-spec/syntax/free.ml", line 106, characters 12-13:
@@ -210,6 +208,8 @@ File "/Users/renato/workspace/wasm-spec/syntax/free.ml", line 134, characters 18
 Warning 27: unused variable gt.
 File "/Users/renato/workspace/wasm-spec/syntax/operators.ml", line 1, characters 1-12:
 Warning 44: this open statement shadows the value identifier @@ (which is later used)
+File "/Users/renato/workspace/wasm-spec/script/import.ml", line 13, characters 32-37:
+Warning 27: unused variable idesc.
 File "/Users/renato/workspace/wasm-spec/exec/eval.ml", line 5, characters 1-12:
 Warning 44: this open statement shadows the value identifier @@ (which is later used)
 File "/Users/renato/workspace/wasm-spec/exec/eval.ml", line 4, characters 1-9:
@@ -568,4 +568,4 @@ File "/Users/renato/workspace/wasm-spec/text/arrange.ml", line 341, characters 1
 Warning 27: unused variable xxxx.
 File "/Users/renato/workspace/wasm-spec/text/arrange.ml", line 510, characters 5-7:
 Warning 27: unused variable es.
-#Done(1657661943905)
+#Done(1657821049684)

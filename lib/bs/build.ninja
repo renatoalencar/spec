@@ -13,7 +13,7 @@ rule mi
   restat = 1
 o runtime/func.cmi : mi runtime/func.iast
 rule mj
-  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -bs-read-cmi -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name deku-originate -bs-package-output es6:$in_d:.bs.js $i
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -bs-read-cmi -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name wasm-spec -bs-package-output commonjs:$in_d:.bs.js $i
   dyndep = 1
   restat = 1
 o runtime/func.cmj ../../runtime/func.bs.js : mj runtime/func.ast runtime/func.cmi
@@ -35,7 +35,7 @@ o runtime/memory.cmj ../../runtime/memory.bs.js : mj runtime/memory.ast runtime/
 o runtime/instance.ast : ast ../../runtime/instance.ml
 o runtime/instance.d : deps runtime/instance.ast
 rule mij
-  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name deku-originate -bs-package-output es6:$in_d:.bs.js $i
+  command = /Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -I text -I syntax -I util -I script -I exec -I binary -I runtime   -bs-package-name wasm-spec -bs-package-output commonjs:$in_d:.bs.js $i
   dyndep = 1
   restat = 1
 o runtime/instance.cmj runtime/instance.cmi ../../runtime/instance.bs.js : mij runtime/instance.ast

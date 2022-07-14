@@ -1,0 +1,20 @@
+####{BSB GENERATED: NO EDIT
+FLG -ppx '/Users/renato/workspace/wasm-spec/node_modules/rescript/darwin/bsc.exe -as-ppx '
+S /Users/renato/workspace/wasm-spec/node_modules/rescript/lib/ocaml
+B /Users/renato/workspace/wasm-spec/node_modules/rescript/lib/ocaml
+FLG -w +a-4-9-20-40-41-42-50-61-102
+S runtime
+B lib/bs/runtime
+S binary
+B lib/bs/binary
+S exec
+B lib/bs/exec
+S script
+B lib/bs/script
+S util
+B lib/bs/util
+S syntax
+B lib/bs/syntax
+S text
+B lib/bs/text
+####BSB GENERATED: NO EDIT}

@@ -1,5 +1,5 @@
 {
-    "name": "deku-originate",
+    "name": "wasm-spec",
     "sources": [
       { "dir": "text" },
       { "dir": "syntax" },
@@ -11,7 +11,7 @@
     ],
     "package-specs": [
       {
-        "module": "es6",
+        "module": "commonjs",
         "in-source": true
       }
     ],
